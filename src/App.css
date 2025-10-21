@@ -1,0 +1,733 @@
+﻿/* src/App.css - مطابق 100% مع Responsive كامل */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════
+   إعدادات عامة
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+    --primary: #3B82F6;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-500: #6B7280;
+    --gray-700: #374151;
+    --gray-800: #1F2937;
+    --gray-900: #111827;
+    --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+    direction: rtl;
+    background: var(--gray-50);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   شاشة التحميل
+   ═══════════════════════════════════════════════════════════════ */
+
+.loading-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-purple);
+    gap: 1.5rem;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.loading-text {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   صفحة اختيار الدور
+   ═══════════════════════════════════════════════════════════════ */
+
+.role-selection-page {
+    min-height: 100vh;
+    background: var(--gradient-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.role-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 3rem;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: var(--shadow-xl);
+}
+
+.role-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.role-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.role-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.role-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.role-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.role-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-lg);
+}
+
+    .role-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: var(--shadow-xl);
+    }
+
+.role-card-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.role-card-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 1rem;
+}
+
+.role-card-desc {
+    font-size: 1rem;
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.role-card-features {
+    background: #EBF5FF;
+    border-radius: 12px;
+    padding: 1.5rem;
+    list-style: none;
+    text-align: right;
+}
+
+.role-card-features-manager {
+    background: #ECFDF5;
+}
+
+.role-card-features li {
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    margin-bottom: 0.75rem;
+}
+
+    .role-card-features li:last-child {
+        margin-bottom: 0;
+    }
+
+.role-footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   لوحة التحكم - الهيدر
+   ═══════════════════════════════════════════════════════════════ */
+
+.dashboard-page {
+    min-height: 100vh;
+    background: var(--gray-50);
+}
+
+.dashboard-header {
+    background: white;
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-logo {
+    font-size: 2.5rem;
+}
+
+.header-title h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1.2;
+}
+
+.header-subtitle {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: var(--gray-100);
+    border-radius: 10px;
+    font-size: 0.875rem;
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.date-icon {
+    font-size: 1rem;
+}
+
+.header-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+    .header-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+.btn-refresh {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-switch {
+    background: var(--success);
+    color: white;
+}
+
+.btn-back {
+    background: var(--gray-700);
+    color: white;
+}
+
+.btn-icon {
+    font-size: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   لوحة التحكم - المحتوى
+   ═══════════════════════════════════════════════════════════════ */
+
+.dashboard-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* بطاقات الإحصائيات */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-box {
+    background: white;
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s;
+    border-right: 4px solid;
+}
+
+    .stat-box:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+
+.stat-primary {
+    border-color: var(--primary);
+}
+
+.stat-success {
+    border-color: var(--success);
+}
+
+.stat-warning {
+    border-color: var(--warning);
+}
+
+.stat-danger {
+    border-color: var(--danger);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   جدول المواعيد
+   ═══════════════════════════════════════════════════════════════ */
+
+.appointments-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--gray-200);
+    background: var(--gray-50);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.title-icon {
+    font-size: 1.75rem;
+}
+
+.section-info {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.info-badge {
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .appointments-table thead {
+        background: var(--gray-50);
+    }
+
+    .appointments-table th {
+        padding: 1rem 1.5rem;
+        text-align: right;
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--gray-700);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .appointments-table td {
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid var(--gray-200);
+        font-size: 0.95rem;
+    }
+
+.table-row:hover {
+    background: var(--gray-50);
+}
+
+.td-time {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.td-name {
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.td-car, .td-size, .td-phone {
+    color: var(--gray-600);
+}
+
+.td-wash {
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+.status-pill {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.status-scheduled {
+    background: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.status-completed {
+    background: #D1FAE5;
+    color: #047857;
+}
+
+.status-missed {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.td-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .action-btn:hover {
+        transform: scale(1.1);
+        box-shadow: var(--shadow-md);
+    }
+
+.btn-complete {
+    background: var(--success);
+    color: white;
+}
+
+.btn-miss {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-reschedule {
+    background: var(--warning);
+    color: white;
+}
+
+.empty-state {
+    padding: 4rem 2rem !important;
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    font-size: 1.125rem;
+    color: var(--gray-500);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   قسم المعلومات الإضافية
+   ═══════════════════════════════════════════════════════════════ */
+
+.info-section {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.info-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.info-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-label {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    font-weight: 500;
+}
+
+.info-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Responsive - موبايل
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .header-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-right {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .role-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .role-title {
+        font-size: 1.75rem;
+    }
+
+    .role-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-main {
+        padding: 1rem;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-box {
+        padding: 1.25rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .appointments-table {
+        font-size: 0.8125rem;
+    }
+
+        .appointments-table th,
+        .appointments-table td {
+            padding: 0.75rem 0.5rem;
+        }
+
+    .header-date {
+        font-size: 0.75rem;
+    }
+
+    .header-btn {
+        font-size: 0.8125rem;
+        padding: 0.5rem 0.875rem;
+    }
+
+    .btn-text {
+        display: none;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .role-title {
+        font-size: 1.5rem;
+    }
+
+    .role-subtitle {
+        font-size: 1rem;
+    }
+
+    .header-logo {
+        font-size: 2rem;
+    }
+
+    .header-title h1 {
+        font-size: 1.25rem;
+    }
+
+    .stat-icon {
+        font-size: 2.5rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    /* جدول بتمرير أفقي للموبايل */
+    .table-wrapper {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .appointments-table {
+        min-width: 800px;
+    }
+}
