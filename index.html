@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مغسلة سيارات متنقلة - نظام الإدارة</title>
+    <meta name="description" content="نظام إدارة مغسلة سيارات متنقلة مع جدولة ذكية واشتراكات شهرية">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/static/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+            <header class="bg-white shadow-lg">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center py-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-car-wash text-3xl text-blue-600 mr-3"></i>
+                            <h1 class="text-2xl font-bold text-gray-900">مغسلة سيارات متنقلة</h1>
+                        </div>
+                        <nav class="flex space-x-4">
+                            <a href="/admin" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                                <i class="fas fa-cog mr-1"></i> لوحة التحكم
+                            </a>
+                            <a href="/customer" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                                <i class="fas fa-user mr-1"></i> تطبيق العميل
+                            </a>
+                            <a href="/employee" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                                <i class="fas fa-user-tie mr-1"></i> تطبيق الموظف
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">نظام إدارة مغسلة سيارات متنقلة</h2>
+                    <p class="text-xl text-gray-600 mb-8">جدولة ذكية، اشتراكات شهرية، وإدارة متكاملة</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="text-blue-600 text-4xl mb-4">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">الجدولة الذكية</h3>
+                            <p class="text-gray-600">تجنب التعارضات، توزيع جغرافي ذكي، وتحديثات فورية</p>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="text-green-600 text-4xl mb-4">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">اشتراكات شهرية</h3>
+                            <p class="text-gray-600">باقات متنوعة، توزيع مرن، وتتبع استهلاك مميز</p>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="text-purple-600 text-4xl mb-4">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">إدارة متكاملة</h3>
+                            <p class="text-gray-600">تقارير متقدمة، إحصاءات حية، وتحليلات الأداء</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <a href="/admin" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
+                            <i class="fas fa-rocket mr-2"></i> ابدأ الآن
+                        </a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="/static/app.js"></script>
+</body>
+</html>

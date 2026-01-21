@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite'
-import pages from '@hono/vite-cloudflare-pages'
 
 export default defineConfig({
-  plugins: [pages()],
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    rollupOptions: {
+      input: 'index.html'
+    }
   },
-  server: {
-    port: 3000,
-    host: '0.0.0.0'
+  worker: {
+    format: 'es'
   }
 })
