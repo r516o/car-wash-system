@@ -8,7 +8,7 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "webapp-production",
+      "database_name": "car-wash-system-production",
       "database_id": "your-production-database-id-from-cloudflare"
     }
   ],

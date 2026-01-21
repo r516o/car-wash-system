@@ -2,6 +2,52 @@
 
 نظام متكامل لإدارة مغسلة سيارات متنقلة يدعم نموذج الاشتراكات الشهرية والخدمات الفردية، مع محرك جدولة ذكي يمنع تعارض المواعيد.
 
+## الحالة الحالية
+✅ **مكتمل وجاهز للتشغيل**
+- تم النشر على Cloudflare Pages مع قاعدة بيانات D1
+- جاهز للإنتاج مع دعم كامل للعربية والإنجليزية
+- نظام جدولة ذكي متقدم مع منع تعارض المواعيد
+- **المشروع قيد التشغيل على**: http://localhost:3001
+- **الوصول العام**: https://3001-ipk0cjflj56mii12v3c86-0e616f0a.sandbox.novita.ai
+
+## التثبيت والتشغيل المحلي
+
+### المتطلبات
+- Node.js 18+
+- npm أو yarn
+- حساب Cloudflare (للنشر)
+
+## الروابط النشطة
+- **التطبيق المحلي**: http://localhost:3001
+- **التطبيق العام**: https://3001-ipk0cjflj56mii12v3c86-0e616f0a.sandbox.novita.ai
+- **مستودع GitHub**: https://github.com/r516o/car-wash-system
+
+## واجهات برمجة التطبيقات (APIs)
+### العملاء
+- `GET /api/customers` - قائمة العملاء
+- `POST /api/customers` - إضافة عميل جديد
+- `GET /api/customers/:id` - تفاصيل عميل محدد
+
+### الاشتراكات
+- `GET /api/subscriptions` - قائمة الاشتراكات
+- `POST /api/subscriptions` - إنشاء اشتراك جديد
+- `GET /api/subscriptions/:id` - تفاصيل اشتراك
+
+### المواعيد
+- `GET /api/appointments` - قائمة المواعيد
+- `POST /api/appointments` - حجز موعد جديد
+- `GET /api/appointments/available-slots` - الفترات الزمنية المتاحة
+
+### الجدولة الذكية
+- `GET /api/scheduling/conflicts` - التحقق من التعارضات
+- `POST /api/scheduling/optimize` - تحسين الجدول
+- `GET /api/scheduling/employee-schedule/:employeeId` - جدول الموظف
+
+### التقارير والتحليلات
+- `GET /api/analytics/dashboard` - لوحة التحكم الإحصائية
+- `GET /api/analytics/revenue` - تقارير الإيرادات
+- `GET /api/analytics/performance` - أداء النظام
+
 ## المميزات الرئيسية
 
 ### نظام الجدولة الذكي المتقدم

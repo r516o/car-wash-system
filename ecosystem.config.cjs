@@ -4,7 +4,7 @@ module.exports = {
     {
       name: 'webapp',
       script: 'npx',
-      args: 'wrangler pages dev dist --d1=webapp-production --local --ip 0.0.0.0 --port 3001',
+      args: 'wrangler pages dev dist --d1=car-wash-system-production --local --ip 0.0.0.0 --port 3001',
       env: {
         NODE_ENV: 'development',
         PORT: 3001
